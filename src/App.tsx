@@ -1,7 +1,10 @@
+import { useState } from "react";
+import ExpenseCalendarCarousel from "./components/commons/ExpenseCalendarCarousel";
 import Card from "./components/layouts/Card";
 import MobileContainer from "./components/layouts/MobileContainer";
 
 function App() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   return (
     <>
       <MobileContainer>
@@ -9,13 +12,21 @@ function App() {
           <div className="sticky top-0 left-0 flex z-100">
             <div className="px-4 py-2 rounded-full shadow-lg border-l border-t border-white/30 flex gap-2 items-center backdrop-blur-sm">
               <h1 className="font-medium text-xl">shimacho</h1>
-              <span className="bg-green-400/30 border border-green-700 rounded-full px-2 inset-shadow-sm">
+              <span className="text-xs bg-green-400/30 border border-green-700 rounded-full px-2 inset-shadow-sm">
                 v0.0.1-beta
               </span>
             </div>
+            <label>
+              IsLoading
+              <input
+                type="checkbox"
+                checked={isLoading}
+                onChange={(e) => setIsLoading(e.target.checked)}
+              />
+            </label>
           </div>
           <section className="flex flex-col gap-2">
-            <Card isLoading={false}>
+            <Card isLoading={isLoading}>
               <div className="flex flex-col gap-2">
                 <div className="text-center text-lg font-bold">
                   November, 2025
@@ -32,13 +43,13 @@ function App() {
                   </div>
                 </div>
                 <div className="flex justify-center gap-2">
-                  <div className="h-3 rounded-full w-10 bg-secondary/20 animate-pulse"></div>
-                  <div className="h-3 rounded-full w-10 bg-secondary/20 animate-pulse"></div>
-                  <div className="h-3 rounded-full w-10 bg-secondary/20 animate-pulse"></div>
+                  <div className="h-4 rounded-full w-10 bg-secondary/20 animate-pulse"></div>
+                  <div className="h-4 rounded-full w-10 bg-secondary/20 animate-pulse"></div>
+                  <div className="h-4 rounded-full w-10 bg-secondary/20 animate-pulse"></div>
                 </div>
               </div>
             </Card>
-            <Card isLoading={false}>
+            <Card isLoading={isLoading}>
               <div className="flex flex-col gap-2">
                 <div className="text-center text-lg font-bold">Categories</div>
                 <div className="flex gap-2 items-center">
@@ -68,7 +79,7 @@ function App() {
                 </div>
               </div>
             </Card>
-            <Card isLoading={false}>
+            <Card isLoading={isLoading}>
               <div className="flex flex-col gap-2">
                 <div className="text-center text-lg font-bold">
                   Daily Report
@@ -81,10 +92,16 @@ function App() {
                 </div>
               </div>
             </Card>
-            <Card isLoading={true}>
+            <Card isLoading={isLoading}>
               <div className="text-center text-lg font-bold">
                 Monthly Ranking
               </div>
+            </Card>
+            <Card isLoading={isLoading}>
+              <div className="text-center text-lg font-bold">
+                Expense Calendar
+              </div>
+              <ExpenseCalendarCarousel />
             </Card>
           </section>
           <div className="fixed left-0 bottom-0 w-full flex justify-center">

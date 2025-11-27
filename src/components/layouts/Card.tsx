@@ -8,7 +8,7 @@ interface CardProps {
 const Card = ({ children, isLoading }: CardProps) => {
   return (
     <>
-      <div className="p-4 rounded-2xl shadow-lg border-l border-t border-white/30 h-fit w-full backdrop-blur-sm">
+      <div className="fade-in p-4 rounded-2xl shadow-lg border-l border-t border-white/30 h-fit w-full backdrop-blur-sm">
         {isLoading ? (
           <div className="flex flex-col gap-2">
             <div className="flex gap-2 items-center">
@@ -22,7 +22,7 @@ const Card = ({ children, isLoading }: CardProps) => {
             <span className="w-full min-h-4 animate-pulse bg-secondary/30 rounded-full"></span>
           </div>
         ) : (
-          children
+          <div className="fade-in">{children}</div>
         )}
       </div>
     </>
