@@ -5,14 +5,16 @@ function App() {
   return (
     <>
       <MobileContainer>
-        <div className="p-2 h-full w-full overflow-hidden flex flex-col gap-2 relative">
-          <div className="px-4 py-2 rounded-full shadow-lg w-fit border-l border-t border-white/30 flex gap-2 items-center sticky top-2 left-2 backdrop-blur-lg z-10">
-            <h1 className="font-medium text-xl">shimacho</h1>
-            <span className="bg-green-400/30 border border-green-700 rounded-full px-2 inset-shadow-sm">
-              v0.0.1-beta
-            </span>
+        <div className="p-2 h-full w-full overflow-auto flex flex-col gap-2">
+          <div className="sticky top-0 left-0 flex z-100">
+            <div className="px-4 py-2 rounded-full shadow-lg border-l border-t border-white/30 flex gap-2 items-center backdrop-blur-sm">
+              <h1 className="font-medium text-xl">shimacho</h1>
+              <span className="bg-green-400/30 border border-green-700 rounded-full px-2 inset-shadow-sm">
+                v0.0.1-beta
+              </span>
+            </div>
           </div>
-          <section className="flex-1 overflow-auto p-2 flex flex-col gap-2">
+          <section className="flex flex-col gap-2">
             <Card isLoading={false}>
               <div className="flex flex-col gap-2">
                 <div className="text-center text-lg font-bold">
@@ -85,20 +87,24 @@ function App() {
               </div>
             </Card>
           </section>
-          <button className="absolute right-2 bottom-2 rounded-full shadow-xl border-l border-t border-white/30 p-2 cursor-pointer backdrop-blur-lg">
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 36 36"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M19.125 16.875V5.625H16.875V16.875H5.625V19.125H16.875V30.375H19.125V19.125H30.375V16.875H19.125Z"
-                fill="#595C6B"
-              />
-            </svg>
-          </button>
+          <div className="fixed left-0 bottom-0 w-full flex justify-center">
+            <div className="max-w-[440px] w-full p-2 text-right">
+              <button className="rounded-full shadow-xl border-l border-t border-white/30 p-2 cursor-pointer backdrop-blur-sm">
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.125 16.875V5.625H16.875V16.875H5.625V19.125H16.875V30.375H19.125V19.125H30.375V16.875H19.125Z"
+                    fill="#595C6B"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </MobileContainer>
     </>
